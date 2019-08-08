@@ -43,15 +43,16 @@ LABEL maintainer "Maurizio Ungaro <ungaro@jlab.org>"
 ENV JLAB_ROOT /jlab
 ENV JLAB_VERSION 2.3
 ENV CLAS12TAG 4.3.1
-ENV COATJTAG 6b.2.0
+ENV COATJTAG 6.3.1
 ENV CCDBSQLITE ccdb_2019-04-11.sqlite
-ENV CLARATAG 4.3.8
+ENV CLARATAG 4.3.10
 
 # gfortran for clasdis generator
+# root for genKYandOnePion and evio2root
 # xemacs to help users
 # libXtst for kpp-plots
 # libfonts for kpp-plots fonts
-RUN yum install -y gcc-gfortran xemacs libXtst libfonts
+RUN yum install -y gcc-gfortran xemacs libXtst libfonts root
 
 WORKDIR $JLAB_ROOT
 
@@ -61,7 +62,6 @@ WORKDIR $JLAB_ROOT
 # Checking out clas12Tags and compiling CLAS12TAG
 # Putting clas12 gcard in $JLAB_ROOT/work
 # Getting the field maps
-# $JLAB_ROOT/work is an existing directory
 RUN git clone https://github.com/gemc/clas12Tags.git \
 	&& cd $JLAB_ROOT/clas12Tags \
 	&& source $JLAB_ROOT/$JLAB_VERSION/ce/jlab.sh \
@@ -75,9 +75,10 @@ RUN git clone https://github.com/gemc/clas12Tags.git \
 	&& wget -q http://clasweb.jlab.org/12gev/field_maps/TorusSymmetric.dat \
 	&& wget -q http://clasweb.jlab.org/12gev/field_maps/clas12NewSolenoidFieldMap.dat \
 	&& rm /etc/profile.d/jlab.csh \
-	&& rm /etc/profile.d/jlab.sh \
-	# reconstruction, clara and coatjava
-	&& mkdir -p $JLAB_SOFTWARE/clas12/lib \
+	&& rm /etc/profile.d/jlab.sh
+
+# reconstruction, clara and coatjava
+RUN    mkdir -p $JLAB_SOFTWARE/clas12/lib \
 	&& mkdir -p $JLAB_SOFTWARE/clas12/bin \
 	&& mkdir -p $JLAB_SOFTWARE/clas12/inc \
 	&& export CLARA_HOME=$JLAB_ROOT/$JLAB_VERSION/claraHome \
@@ -89,23 +90,16 @@ RUN git clone https://github.com/gemc/clas12Tags.git \
 	# new version of clara requires typing "Y" to remove old home dir
 	&& echo Y | ./install-claracre-clas.sh -v $COATJTAG -f $CLARATAG \
 	&& cd /jlab \
-	&& rm -rf tmp \
-	# the following commands create a dst directory (which must be pointed to in the yaml file)
-	# with a subset of the banks, thus effectively creating a dst schema
-	&& cd /jlab/$JLAB_VERSION/claraHome/plugins/clas12/etc/bankdefs \
-	&& mkdir dst \
-	&& cd hipo \
-	# copying all banks in the interactive reconstruction. New services.yaml points to dst dir for the list of banks
-	&& cp *.json ../dst/ \
-	# && cp  HEADER.json MC.json EVENT.json ../dst/
-	&& rm /jlab/$JLAB_VERSION/claraHome/plugins/clas12/config/services.yaml \
 	# temp removal of this jar
 	&& rm /jlab/$JLAB_VERSION/claraHome/plugins/clas12/lib/utils/jclara-* \
-	&& cd /jlab/work \
-	# CCDBSQLITE
-	&& wget --no-check-certificate https://www.jlab.org/12gev_phys/packages/ccdb/$CCDBSQLITE \
+	&& cd /jlab/work
+
+# CCDBSQLITE
+RUN wget --no-check-certificate https://www.jlab.org/12gev_phys/packages/ccdb/$CCDBSQLITE
+
+# Generators
 	# clasdis generator
-	&& git clone https://github.com/JeffersonLab/clasdis-nocernlib \
+RUN git clone https://github.com/JeffersonLab/clasdis-nocernlib \
 	&& cd clasdis-nocernlib \
 	&& make \
 	&& cp clasdis $JLAB_SOFTWARE/clas12/bin \
@@ -115,22 +109,27 @@ RUN git clone https://github.com/gemc/clas12Tags.git \
 	&& cd inclusive-dis-rad \
 	&& make \
 	&& cp generate-dis $JLAB_SOFTWARE/clas12/bin \
-	&& cd /jlab/work \
 	# clasdvcs
+	&& cd /jlab/work \
 	&& git clone https://github.com/JeffersonLab/dvcsgen.git \
 	&& cd dvcsgen \
 	&& make \
 	&& cp dvcsgen $JLAB_SOFTWARE/clas12/bin \
-	# ced
+	# genKYandOnePion
 	&& cd /jlab/work \
+	&& git clone https://github.com/ValeriiKlimenko/genKYandOnePion/ \
+	&& chmod +x COMPILE_eg_ky \
+	&& ./COMPILE_eg_ky
+
+	# ced
+RUN	cd /jlab/work \
 	&& wget https://userweb.jlab.org/~heddle/ced/builds/ced.1.006.tar.gz \
 	&& tar -zxpvf ced.1.006.tar.gz 
 
 
-
 ADD environment.csh     /etc/profile.d
 ADD environment.sh      /etc/profile.d
-ADD services.yaml       /jlab/$JLAB_VERSION/claraHome/plugins/clas12/config
+# ADD services.yaml       /jlab/$JLAB_VERSION/claraHome/plugins/clas12/config
 ADD createClaraCook.csh /jlab/$JLAB_VERSION/Linux_CentOS7.5.1804-x86_64-gcc4.8.5/clas12/bin
 # CSQLITE File
 ADD $CCDBSQLITE          /jlab/work

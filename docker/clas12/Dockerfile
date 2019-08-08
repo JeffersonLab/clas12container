@@ -2,7 +2,7 @@
 # docker image for CLAS12 Production Simulation - to be run in batch mode on OSG
 #-------------------------------------------------------------------------------
 #
-#  1. Remember to find/replace gemcinteractive version with the newest one
+#  1. Remember to find/replace gemcbatch version with the newest one
 #  2. Remember to match clas12tags and JLAB_VERSION in environment.csh
 #  3. Remember to find/replace COATJTAG with the newest one
 #  4. If it's a new production version build both the number and the iprod
@@ -45,9 +45,10 @@ ENV JLAB_VERSION 2.3
 ENV CLAS12TAG 4.3.1
 ENV COATJTAG 6.3.1
 ENV CCDBSQLITE ccdb_2019-04-11.sqlite
+ENV CLARATAG 4.3.10
 
-
-# gfortran for clasdis generator, root for genKYandOnePion and evio2root
+# gfortran for clasdis generator
+# root for genKYandOnePion and evio2root
 
 
 
@@ -61,7 +62,6 @@ WORKDIR $JLAB_ROOT
 # Checking out clas12Tags and compiling CLAS12TAG
 # Putting clas12 gcard in $JLAB_ROOT/work
 # Getting the field maps
-# $JLAB_ROOT/work is an existing directory
 RUN git clone https://github.com/gemc/clas12Tags.git \
 	&& cd $JLAB_ROOT/clas12Tags \
 	&& source $JLAB_ROOT/$JLAB_VERSION/ce/jlab.sh \
@@ -75,26 +75,31 @@ RUN git clone https://github.com/gemc/clas12Tags.git \
 	&& wget -q http://clasweb.jlab.org/12gev/field_maps/TorusSymmetric.dat \
 	&& wget -q http://clasweb.jlab.org/12gev/field_maps/clas12NewSolenoidFieldMap.dat \
 	&& rm /etc/profile.d/jlab.csh \
-	&& rm /etc/profile.d/jlab.sh \
-	# reconstruction, clara and coatjava
-	&& mkdir -p $JLAB_SOFTWARE/clas12/lib \
+	&& rm /etc/profile.d/jlab.sh
+
+# reconstruction, clara and coatjava
+RUN    mkdir -p $JLAB_SOFTWARE/clas12/lib \
 	&& mkdir -p $JLAB_SOFTWARE/clas12/bin \
 	&& mkdir -p $JLAB_SOFTWARE/clas12/inc \
-	&& cd $JLAB_SOFTWARE \
-	# JAVA from Oracle
-	# Get JRE tar.gz from https://www.oracle.com/technetwork/java/javase/downloads/index.html
-	# The .tar.gz is then put at JLAB on /site
-	&& wget --no-check-certificate https://www.jlab.org/12gev_phys/packages/sources/java/jre-8u191-linux-x64.tar.gz \
-	&& tar -zxpvf jre-8u191-linux-x64.tar.gz \
-	# reconstruction: coatjava
-	&& cd $JLAB_SOFTWARE/clas12 \
-	&& wget --no-check-certificate https://github.com/JeffersonLab/clas12-offline-software/releases/download/$COATJTAG/coatjava-$COATJTAG.tar.gz \
-	&& tar -zxpvf coatjava-$COATJTAG.tar.gz \
-	&& cd /jlab/work \
-	# CCDBSQLITE
-	&& wget --no-check-certificate https://www.jlab.org/12gev_phys/packages/ccdb/$CCDBSQLITE \
+	&& export CLARA_HOME=$JLAB_ROOT/$JLAB_VERSION/claraHome \
+	# creating log dir structure
+	&& mkdir -p $CLARA_HOME/plugins/clas12/log /jlab/tmp \
+	&& cd /jlab/tmp \
+	&& wget  --no-check-certificate https://claraweb.jlab.org/clara/_downloads/install-claracre-clas.sh \
+	&& chmod u+x install-claracre-clas.sh \
+	# new version of clara requires typing "Y" to remove old home dir
+	&& echo Y | ./install-claracre-clas.sh -v $COATJTAG -f $CLARATAG \
+	&& cd /jlab \
+	# temp removal of this jar
+	&& rm /jlab/$JLAB_VERSION/claraHome/plugins/clas12/lib/utils/jclara-* \
+	&& cd /jlab/work
+
+# CCDBSQLITE
+RUN wget --no-check-certificate https://www.jlab.org/12gev_phys/packages/ccdb/$CCDBSQLITE
+
+# Generators
 	# clasdis generator
-	&& git clone https://github.com/JeffersonLab/clasdis-nocernlib \
+RUN git clone https://github.com/JeffersonLab/clasdis-nocernlib \
 	&& cd clasdis-nocernlib \
 	&& make \
 	&& cp clasdis $JLAB_SOFTWARE/clas12/bin \
@@ -114,12 +119,19 @@ RUN git clone https://github.com/gemc/clas12Tags.git \
 	&& cd /jlab/work \
 	&& git clone https://github.com/ValeriiKlimenko/genKYandOnePion/ \
 	&& chmod +x COMPILE_eg_ky \
-	&& ./COMPILE_eg_ky \
-	# Temp /condor for el6 binding
-	&& mkdir /condor \
+	&& ./COMPILE_eg_ky
+
+# Temp /condor for el6 binding
+RUN mkdir /condor \
 	&& mkdir /etc/condor
+
+
 
 ADD environmentB.csh     /etc/profile.d
 ADD environmentB.sh      /etc/profile.d
-
+# ADD services.yaml       /jlab/$JLAB_VERSION/claraHome/plugins/clas12/config
+ADD createClaraCook.csh /jlab/$JLAB_VERSION/Linux_CentOS7.5.1804-x86_64-gcc4.8.5/clas12/bin
+# CSQLITE File
+ADD $CCDBSQLITE          /jlab/work
 WORKDIR $JLAB_ROOT/work
+
