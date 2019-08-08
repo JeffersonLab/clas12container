@@ -44,7 +44,7 @@ ENV JLAB_ROOT /jlab
 ENV JLAB_VERSION 2.3
 ENV CLAS12TAG 4.3.1
 ENV COATJTAG 6.3.1
-ENV CCDBSQLITE ccdb_2019-04-11.sqlite
+ENV CCDBSQLITE ccdb_2019-08-04.sqlite
 ENV CLARATAG 4.3.10
 
 # gfortran for clasdis generator
@@ -56,21 +56,19 @@ RUN yum install -y gcc-gfortran root
 
 WORKDIR $JLAB_ROOT
 
-# Removing un-used tags and .git stuff
-# Removing default version of gemc
-# Replacing the scripts in /etc and with the environment scripts
 # Checking out clas12Tags and compiling CLAS12TAG
-# Putting clas12 gcard in $JLAB_ROOT/work
-# Getting the field maps
+# Removing un-used tags and .git stuff
 RUN git clone https://github.com/gemc/clas12Tags.git \
 	&& cd $JLAB_ROOT/clas12Tags \
 	&& source $JLAB_ROOT/$JLAB_VERSION/ce/jlab.sh \
 	&& rm -rf $JLAB_ROOT/$JLAB_VERSION/$OSRELEASE/gemc \
 	&& ./goInstall $CLAS12TAG \
 	# delete .git after goInstall as it does a pull
-	&& rm -rf .git* `ls | grep -v goIns | grep -v $CLAS12TAG | grep -v env | grep -v REA` \
-	&& cp $JLAB_ROOT/clas12Tags/$CLAS12TAG/clas12.gcard $JLAB_ROOT/work \
-	&& mkdir -p /jlab/noarch/data \
+	&& rm -rf .git* `ls | grep -v goIns | grep -v $CLAS12TAG | grep -v env | grep -v REA`
+
+# Getting the field maps
+# Replacing the scripts in /etc and with the environment scripts
+RUN mkdir -p /jlab/noarch/data \
 	&& cd /jlab/noarch/data \
 	&& wget -q http://clasweb.jlab.org/12gev/field_maps/TorusSymmetric.dat \
 	&& wget -q http://clasweb.jlab.org/12gev/field_maps/clas12NewSolenoidFieldMap.dat \
