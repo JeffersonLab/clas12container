@@ -91,11 +91,11 @@ RUN    mkdir -p $JLAB_SOFTWARE/clas12/lib \
 	&& echo Y | ./install-claracre-clas.sh -v $COATJTAG -f $CLARATAG \
 	&& cd /jlab \
 	# temp removal of this jar
-	&& rm /jlab/$JLAB_VERSION/claraHome/plugins/clas12/lib/utils/jclara-* \
-	&& cd /jlab/work
+	&& rm /jlab/$JLAB_VERSION/claraHome/plugins/clas12/lib/utils/jclara-*
 
 # CCDBSQLITE
-RUN wget --no-check-certificate https://www.jlab.org/12gev_phys/packages/ccdb/$CCDBSQLITE
+RUN cd /jlab/work \
+	&& wget --no-check-certificate https://www.jlab.org/12gev_phys/packages/ccdb/$CCDBSQLITE
 
 # Generators
 	# clasdis generator
@@ -133,5 +133,4 @@ ADD environment.sh      /etc/profile.d
 # ADD services.yaml       /jlab/$JLAB_VERSION/claraHome/plugins/clas12/config
 ADD createClaraCook.csh /jlab/$JLAB_VERSION/Linux_CentOS7.5.1804-x86_64-gcc4.8.5/clas12/bin
 # CSQLITE File
-ADD $CCDBSQLITE          /jlab/work
 WORKDIR $JLAB_ROOT/work
