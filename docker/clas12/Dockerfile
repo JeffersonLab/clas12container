@@ -44,8 +44,10 @@ ENV JLAB_ROOT /jlab
 ENV JLAB_VERSION 2.3
 ENV CLAS12TAG 4.3.1
 ENV COATJTAG 6.3.1
-ENV CCDBSQLITE ccdb_2019-08-04.sqlite
 ENV CLARATAG 4.3.10
+ENV CCDBSQLITE ccdb_2019-08-04.sqlite
+# Notice: the ccdb file should be taken from: /group/clas12/packages/local/share/ccdb/sqlite
+# and placed into: /group/12gev_phys/www/packages/
 
 # gfortran for clasdis generator
 # root for genKYandOnePion and evio2root
@@ -115,7 +117,8 @@ RUN git clone https://github.com/JeffersonLab/clasdis-nocernlib \
 	&& cp dvcsgen $JLAB_SOFTWARE/clas12/bin \
 	# genKYandOnePion
 	&& cd /jlab/work \
-	&& git clone https://github.com/ValeriiKlimenko/genKYandOnePion/ \
+	&& git clone https://github.com/ValeriiKlimenko/genKYandOnePion \
+	&& cd genKYandOnePion \
 	&& chmod +x COMPILE_eg_ky \
 	&& ./COMPILE_eg_ky
 
