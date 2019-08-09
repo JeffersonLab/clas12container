@@ -4,8 +4,9 @@
 #
 #  1. Remember to find/replace gemcbatch version with the newest one
 #  2. Remember to match clas12tags and JLAB_VERSION in environment.csh
-#  3. Remember to find/replace COATJTAG with the newest one
-#  4. If it's a new production version build both the number and the iprod
+#  3. Remember to match CCDBSQLITE and CCDB_CONNECTION in environment.csh
+#  4. Remember to find/replace COATJTAG with the newest one
+#  5. If it's a new production version build both the number and the iprod
 #
 # To build manually. Remember to tag also a version and "latest"
 #
@@ -91,7 +92,7 @@ RUN    mkdir -p $JLAB_SOFTWARE/clas12/lib \
 	&& echo Y | ./install-claracre-clas.sh -v $COATJTAG -f $CLARATAG \
 	&& cd /jlab \
 	# temp removal of this jar
-	&& rm /jlab/$JLAB_VERSION/claraHome/plugins/clas12/lib/utils/jclara-* 
+	&& rm /jlab/$JLAB_VERSION/claraHome/plugins/clas12/lib/utils/jclara-*
 
 # CCDBSQLITE
 RUN cd /jlab/work \
@@ -128,8 +129,8 @@ RUN mkdir /condor \
 
 
 
-ADD environmentB.csh     /etc/profile.d
-ADD environmentB.sh      /etc/profile.d
+ADD environment.csh     /etc/profile.d
+ADD environment.sh      /etc/profile.d
 # ADD services.yaml       /jlab/$JLAB_VERSION/claraHome/plugins/clas12/config
 ADD createClaraCook.csh /jlab/$JLAB_VERSION/Linux_CentOS7.5.1804-x86_64-gcc4.8.5/clas12/bin
 # CSQLITE File

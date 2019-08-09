@@ -9,7 +9,7 @@ The container contains:
 - the production version of the [reconstruction software](https://github.com/JeffersonLab/clas12-offline-software)
 
 This repo is linked to the hub.docker.com repo: [jeffersonlab/clas12simulations](https://cloud.docker.com/u/jeffersonlab/repository/docker/jeffersonlab/clas12simulations)
-Repository changes will trigger a new docker image creation.
+Any Repository change will trigger a new docker image creation.
 
 ## Open Source Grid Singulartity Image Creation
 

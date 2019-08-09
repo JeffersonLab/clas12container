@@ -3,10 +3,9 @@
 export JLAB_ROOT=/jlab
 export JLAB_VERSION=2.3
 export CLAS12TAG=4.3.1
-export JRE=jre1.8.0_172
 
 # using sqlite
-export CCDB_CONNECTION=sqlite:////jlab/work/ccdb_2019-04-11.sqlite
+export CCDB_CONNECTION=sqlite:////jlab/work/ccdb_2019-08-04.sqlite
 
 # sidis, inclusive dis with rad correction, dvcs
 export CLASDIS_PDF=/jlab/work/clasdis-nocernlib/pdf

@@ -3,10 +3,9 @@
 setenv JLAB_ROOT    /jlab
 setenv JLAB_VERSION 2.3
 setenv CLAS12TAG    4.3.1
-setenv JRE          jre1.8.0_172
 
 # using sqlite
-setenv CCDB_CONNECTION sqlite:////jlab/work/ccdb_2019-04-11.sqlite
+setenv CCDB_CONNECTION sqlite:////jlab/work/ccdb_2019-08-04.sqlite
 
 # sidis, inclusive dis with rad correction, dvcs
 setenv CLASDIS_PDF  /jlab/work/clasdis-nocernlib/pdf

@@ -2,10 +2,11 @@
 # docker image for CLAS12 Production Simulation - for interactive mode
 #---------------------------------------------------------------------
 #
-#  1. Remember to find/replace gemcinteractive version with the newest one
+#  1. Remember to find/replace gemcbatch version with the newest one
 #  2. Remember to match clas12tags and JLAB_VERSION in environment.csh
-#  3. Remember to find/replace COATJTAG with the newest one
-#  4. If it's a new production version build both the number and the iprod
+#  3. Remember to match CCDBSQLITE and CCDB_CONNECTION in environment.csh
+#  4. Remember to find/replace COATJTAG with the newest one
+#  5. If it's a new production version build both the number and the iprod
 #
 # To build manually. Remember to tag also a version and "latest"
 #
