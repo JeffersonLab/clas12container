@@ -7,13 +7,33 @@
 
 |br|
 
-Production (currently 1.2)
+iProd (currently 1.3)
 ==========================
+
+- generators:
+
+  - clasdis
+  - inclusive dis with radiative correction
+  - clasdvcs
+  - genKYandOnePion
+
+- gemc: `version 4.3.1 <https://github.com/gemc/clas12Tags/blob/master/README.md#in-development>`_,
+- CLARA: 4.3.10
+- Coatjava: 6.3.1
+- ced 1.06
+
+
+|
+
+1.2
+===
 
 - gemc: `version 4.3.0 <https://github.com/gemc/clas12Tags/blob/master/README.md#in-development>`_,
 - CLARA: 4.3.8
-- Coatjava: 5.9.0
+- Coatjava: 6.3.1
 - ced 1.06
+
+|
 
 |
 

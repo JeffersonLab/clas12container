@@ -16,9 +16,13 @@ The CLAS12 software packages are distributed using docker images.
 Quickstart: Docker
 ==================
 
-Use the following command to run the clas12 software image::
+Use the following command to run the clas12 software image using a "~/mywork" local directory, and run clasdis events through the GEMC/COATJAVA chain::
 
- docker run -it --rm jeffersonlab/clas12simulations:iprod bash
+ mkdir -p ~/mywork
+ docker run -it --rm  -v ~/mywork:/jlab/work/mywork jeffersonlab/clas12simulations:iprod bash
+ clasdis --trig 1000 --docker --t 25 35
+ gemc -USE_GUI=0 -N=100 -INPUT_GEN_FILE="lund, sidis.dat"  /jlab/clas12Tags/gcards/clas12-default.gcard 
+
 
 |br|
 
@@ -77,7 +81,7 @@ Tags
 .. toctree::
 	:maxdepth: 1
 
-	tags/tags
+	tags
 
 
 

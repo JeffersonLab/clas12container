@@ -11,6 +11,7 @@ export CCDB_CONNECTION=sqlite:////jlab/work/ccdb_2019-08-04.sqlite
 export CLASDIS_PDF=/jlab/work/clasdis-nocernlib/pdf
 export DISRAD_PDF=/jlab/work/inclusive-dis-rad
 export CLASDVCS_PDF=/jlab/work/dvcsgen
+export DataKYandOnePion=/jlab/work/genKYandOnePion/data
 
 export GEMC=/jlab/clas12Tags/$CLAS12TAG/source
 export GEMC_VERSION=$CLAS12TAG

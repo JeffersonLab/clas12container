@@ -8,9 +8,10 @@ setenv CLAS12TAG    4.3.1
 setenv CCDB_CONNECTION sqlite:////jlab/work/ccdb_2019-08-04.sqlite
 
 # sidis, inclusive dis with rad correction, dvcs
-setenv CLASDIS_PDF  /jlab/work/clasdis-nocernlib/pdf
-setenv DISRAD_PDF   /jlab/work/inclusive-dis-rad
-setenv CLASDVCS_PDF /jlab/work/dvcsgen
+setenv CLASDIS_PDF      /jlab/work/clasdis-nocernlib/pdf
+setenv DISRAD_PDF       /jlab/work/inclusive-dis-rad
+setenv CLASDVCS_PDF     /jlab/work/dvcsgen
+setenv DataKYandOnePion /jlab/work/genKYandOnePion/data
 
 setenv GEMC /jlab/clas12Tags/$CLAS12TAG/source
 setenv GEMC_VERSION $CLAS12TAG
