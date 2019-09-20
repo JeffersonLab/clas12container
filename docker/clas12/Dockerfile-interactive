@@ -2,7 +2,7 @@
 # docker image for CLAS12 Production Simulation - for interactive mode
 #---------------------------------------------------------------------
 #
-#  1. Remember to find/replace gemcbatch version with the newest one
+#  1. Remember to find/replace iprod version with the newest one
 #  2. Remember to match clas12tags and JLAB_VERSION in environment.csh
 #  3. Remember to match CCDBSQLITE and CCDB_CONNECTION in environment.csh
 #  4. Remember to find/replace COATJTAG with the newest one
@@ -14,8 +14,8 @@
 #   docker tag clas12simulations:iprod jeffersonlab/clas12simulations:iprod
 #   docker push jeffersonlab/clas12simulations:iprod
 #
-#   docker tag clas12simulations:iprod jeffersonlab/clas12simulations:1.2
-#   docker push jeffersonlab/clas12simulations:1.2
+#   docker tag clas12simulations:iprod jeffersonlab/clas12simulations:1.3
+#   docker push jeffersonlab/clas12simulations:1.3
 #
 #   docker tag clas12simulations:iprod jeffersonlab/clas12simulations:latest
 #   docker push jeffersonlab/clas12simulations:latest
@@ -47,8 +47,8 @@ ENV CLAS12TAG 4.3.1
 ENV COATJTAG 6.3.1
 ENV CLARATAG 4.3.10
 ENV CCDBSQLITE ccdb_2019-08-04.sqlite
-# Notice: the ccdb file should be taken from: /group/clas12/packages/local/share/ccdb/sqlite
-# and placed into: /group/12gev_phys/www/packages/
+
+
 
 # gfortran for clasdis generator
 # root for genKYandOnePion and evio2root

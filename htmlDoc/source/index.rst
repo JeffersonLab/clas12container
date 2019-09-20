@@ -26,15 +26,18 @@ Use the following command to run the clas12 software image::
 Quickstart: Submit Jobs to OSG
 ==============================
 
-Login to scosg16 and copy the steering card template somewhere you can edit::
+Work in progress, coming soon.
 
- ssh scosg16.jlab.org
- cp /group/clas12/offsite-simulations/scard.txt .
- EDIT FILE
+..
+   Login to scosg16 and copy the steering card template somewhere you can edit::
 
-Run submit.py with -s option to submit jobs to OSG::
+   ssh scosg16.jlab.org
+   cp /group/clas12/offsite-simulations/scard.txt .
+   EDIT FILE
 
- /group/clas12/offsite-simulations/submit.py -s scard.txt
+   Run submit.py with -s option to submit jobs to OSG::
+
+   /group/clas12/offsite-simulations/submit.py -s scard.txt
 
 
 |br|
