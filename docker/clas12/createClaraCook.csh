@@ -28,7 +28,7 @@ set yamlFile = /jlab/clas12Tags/gcards/"$yamlConf".yaml
 
 if ( ! -f $yamlFile ) then
 	echo
-	echo ERROR: $yamlFile does not exists. Please chose one among `ls /jlab/clas12Tags/gcards/*.gcard | awk -F\/ '{print $NF}' | awk -F. '{print $1}'`
+	echo ERROR: $yamlFile does not exists. Please chose one among `ls /jlab/clas12Tags/gcards/*.gcard | awk -F\/ '{print $NF}' | awk -F\. '{print $1}'`
 	echo
 	echo Exiting
 	exit
@@ -48,5 +48,9 @@ echo "set servicesFile "$yamlFile >> cook.clara
 echo "run local"                  >> cook.clara
 echo "exit"                       >> cook.clara
 mkdir -p log
+echo
+echo Content of cook.clara:
+echo
 cat cook.clara
-
+echo
+echo You can now run clara-shell cook.clara
