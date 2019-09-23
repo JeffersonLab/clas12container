@@ -20,6 +20,7 @@
 #
 #   No additional tags
 #
+#  Notice: maybe to do "docker login" before being able to push
 #--------------------------------------------------------------------------
 #
 # To run in batch mode:

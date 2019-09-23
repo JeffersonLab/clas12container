@@ -20,6 +20,7 @@
 #   docker tag clas12simulations:iprod jeffersonlab/clas12simulations:latest
 #   docker push jeffersonlab/clas12simulations:latest
 #
+#  Notice: maybe to do "docker login" before being able to push
 #--------------------------------------------------------------------------
 #
 # To run in batch mode:
