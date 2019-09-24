@@ -126,9 +126,9 @@ RUN cd /jlab/work \
 
 # ced
 RUN	cd /jlab/work \
-	&& wget https://userweb.jlab.org/~heddle/ced/builds/ced.1.006.tar.gz \
-	&& tar -zxpvf ced.1.006.tar.gz \
-	&& rm ced.1.006.tar.gz
+	&& wget https://userweb.jlab.org/~heddle/ced/builds/ced.1.4.04.H4.tar.gz	 \
+	&& tar -zxpvf ced.1.4.04.H4.tar.gz	 \
+	&& rm ced.1.4.04.H4.tar.gz
 
 ADD environment.csh     /etc/profile.d
 ADD environment.sh      /etc/profile.d
