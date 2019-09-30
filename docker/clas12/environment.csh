@@ -3,6 +3,7 @@
 setenv JLAB_ROOT    /jlab
 setenv JLAB_VERSION 2.3
 setenv CLAS12TAG    4.3.1
+setenv JRE          jre1.8.0_172
 
 # using sqlite
 setenv CCDB_CONNECTION sqlite:////jlab/work/ccdb_2019-08-04.sqlite
@@ -27,6 +28,7 @@ setenv CLAS12_BIN $JLAB_SOFTWARE/clas12/bin
 
 setenv CLARA_HOME $JLAB_ROOT/$JLAB_VERSION/claraHome
 setenv COATJAVA   $CLARA_HOME/plugins/clas12
+setenv JAVA_HOME  $CLARA_HOME/jre/linux-64/$JRE
 
 setenv PATH ${PATH}:${JAVA_HOME}/bin:${CLAS12_BIN}:${COATJAVA}/bin:${CLARA_HOME}/bin
 

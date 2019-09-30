@@ -3,6 +3,7 @@
 export JLAB_ROOT=/jlab
 export JLAB_VERSION=2.3
 export CLAS12TAG=4.3.1
+export JRE=jre1.8.0_172
 
 # using sqlite
 export CCDB_CONNECTION=sqlite:////jlab/work/ccdb_2019-08-04.sqlite
@@ -27,6 +28,7 @@ export CLAS12_BIN=$JLAB_SOFTWARE/clas12/bin
 
 export CLARA_HOME=$JLAB_ROOT/$JLAB_VERSION/claraHome
 export COATJAVA=$CLARA_HOME/plugins/clas12
+export JAVA_HOME=$CLARA_HOME/jre/linux-64/$JRE
 
 export PATH=${JAVA_HOME}/bin:${PATH}:${CLAS12_BIN}:${COATJAVA}/bin:${CLARA_HOME}/bin
 
