@@ -13,8 +13,8 @@
 The CLAS12 software packages are distributed using docker images.
 
 
-Quickstart: Docker
-==================
+Quickstart: Full chain using docker
+===================================
 
 Use the following command to run the clas12 software image using a "~/mywork" local directory, and run clasdis events through the GEMC/COATJAVA chain::
 
@@ -27,8 +27,35 @@ Use the following command to run the clas12 software image using a "~/mywork" lo
  createClaraCook.csh gemc.hipo rga-spring2018 1
  clara-shell cook.clara
 
+Notice: if you have multiple cores, specify them as the last argument for createClaraCook.csh. For example, if you have 4 cores::
+
+ createClaraCook.csh gemc.hipo rga-spring2018 4
+
+You can find the number of cores of your system by issuing this command::
+
+ sysctl hw.physicalcpu hw.logicalcpu
+
 
 |br|
+
+
+
+Quickstart: GEMC examples, interactively (MacOS)
+================================================
+
+Use the following commands (on Mac) to run gemc interactively::
+
+ defaults write org.macosforge.xquartz.X11 enable_iglx -bool true
+ xhost +127.0.0.1
+ docker run -it --rm -e DISPLAY=docker.for.mac.localhost:0 jeffersonlab/clas12simulations:iprod bash
+ cd /jlab/clas12Tags/4.3.1/experiments/clas12/ctof/
+ gemc ctof.gcard
+
+
+
+|br|
+
+
 
 
 Quickstart: Submit Jobs to OSG
