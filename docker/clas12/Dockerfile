@@ -122,7 +122,8 @@ RUN cd /jlab/work \
 	&& git clone https://github.com/ValeriiKlimenko/genKYandOnePion \
 	&& cd genKYandOnePion \
 	&& chmod +x COMPILE_eg_ky \
-	&& ./COMPILE_eg_ky
+	&& ./COMPILE_eg_ky \
+	&& cp eg_ky $JLAB_SOFTWARE/clas12/bin 
 
 # Temp /condor for el6 binding
 RUN mkdir /condor \
