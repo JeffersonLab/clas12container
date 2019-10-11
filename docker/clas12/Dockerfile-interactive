@@ -122,8 +122,9 @@ RUN cd /jlab/work \
 	&& git clone https://github.com/ValeriiKlimenko/genKYandOnePion \
 	&& cd genKYandOnePion \
 	&& chmod +x COMPILE_eg_ky \
-	&& ./COMPILE_eg_ky
-
+	&& ./COMPILE_eg_ky \
+	&& cp eg_ky $JLAB_SOFTWARE/clas12/bin
+	
 # ced
 RUN	cd /jlab/work \
 	&& wget https://userweb.jlab.org/~heddle/ced/builds/ced.1.4.04.H4.tar.gz	 \
