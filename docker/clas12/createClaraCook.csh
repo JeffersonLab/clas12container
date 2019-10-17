@@ -54,3 +54,5 @@ echo
 cat cook.clara
 echo
 echo You can now run clara-shell cook.clara
+echo
+
