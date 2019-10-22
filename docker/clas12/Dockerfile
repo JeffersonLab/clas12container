@@ -45,14 +45,14 @@ LABEL maintainer "Maurizio Ungaro <ungaro@jlab.org>"
 ENV JLAB_ROOT /jlab
 ENV JLAB_VERSION 2.3
 ENV CLAS12TAG 4.3.1
-ENV COATJTAG 6.3.1
-ENV CLARATAG 4.3.10
+ENV COATJTAG 6b.3.2
+ENV JAVATAG 11.0.5
 ENV CCDBSQLITE ccdb_2019-08-04.sqlite
 ENV JLAB_SOFTWARE /jlab/2.3/Linux_CentOS7.5.1804-x86_64-gcc4.8.5
+ENV JAVADOWNLOAD jdk-$JAVATAG"_linux-x64_bin.tar.gz"
 
 # gfortran for clasdis generator
 # root for genKYandOnePion and evio2root
-
 
 
 RUN yum install -y gcc-gfortran root
@@ -78,25 +78,25 @@ RUN mkdir -p /jlab/noarch/data \
 	&& rm /etc/profile.d/jlab.csh \
 	&& rm /etc/profile.d/jlab.sh
 
-# reconstruction, clara and coatjava
+# java and coatjava
 RUN   mkdir -p $JLAB_SOFTWARE/clas12/lib \
 	&& mkdir -p $JLAB_SOFTWARE/clas12/bin \
 	&& mkdir -p $JLAB_SOFTWARE/clas12/inc \
-	&& export CLARA_HOME=$JLAB_ROOT/$JLAB_VERSION/claraHome \
-	# creating log dir structure
-	&& mkdir -p $CLARA_HOME/plugins/clas12/log /jlab/tmp \
-	&& cd /jlab/tmp \
-	&& wget  --no-check-certificate https://claraweb.jlab.org/clara/_downloads/install-claracre-clas.sh \
-	&& chmod u+x install-claracre-clas.sh \
-	# new version of clara requires typing "Y" to remove old home dir
-	&& echo Y | ./install-claracre-clas.sh -v $COATJTAG -f $CLARATAG \
-	&& cd /jlab \
-	# temp removal of this jar
-	&& rm /jlab/$JLAB_VERSION/claraHome/plugins/clas12/lib/utils/jclara-*
+	&& cd $JLAB_SOFTWARE \
+	# JAVA from Oracle
+	# Get JRE tar.gz from https://www.oracle.com/technetwork/java/javase/downloads/index.html
+	# The .tar.gz is then put at JLAB on /group/12gev_phys/www/packages/sources/java
+	&& wget -q --no-check-certificate https://www.jlab.org/12gev_phys/packages/sources/java/$JAVADOWNLOAD \
+	&& tar -zxpvf $JAVADOWNLOAD \
+	# reconstruction: coatjava. untar file in coatjava directory
+	&& cd $JLAB_SOFTWARE/clas12 \
+	&& wget -q --no-check-certificate https://github.com/JeffersonLab/clas12-offline-software/archive/$COATJTAG.tar.gz \
+	&& mkdir -p coatjava ; tar -zxpvf $COATJTAG.tar.gz  --strip-components 1 -C coatjava
+
 
 # CCDBSQLITE
 RUN cd /jlab/work \
-	&& wget --no-check-certificate https://www.jlab.org/12gev_phys/packages/ccdb/$CCDBSQLITE
+	&& wget -q --no-check-certificate https://www.jlab.org/12gev_phys/packages/ccdb/$CCDBSQLITE
 
 # Generators
 	# clasdis generator
@@ -133,5 +133,4 @@ RUN mkdir /condor \
 
 ADD environment.csh     /etc/profile.d
 ADD environment.sh      /etc/profile.d
-ADD createClaraCook.csh $JLAB_SOFTWARE/clas12/bin/createClaraCook.csh
 WORKDIR $JLAB_ROOT/work

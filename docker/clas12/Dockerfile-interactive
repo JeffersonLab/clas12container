@@ -86,7 +86,7 @@ RUN   mkdir -p $JLAB_SOFTWARE/clas12/lib \
 	# creating log dir structure
 	&& mkdir -p $CLARA_HOME/plugins/clas12/log /jlab/tmp \
 	&& cd /jlab/tmp \
-	&& wget  --no-check-certificate https://claraweb.jlab.org/clara/_downloads/install-claracre-clas.sh \
+	&& wget -q --no-check-certificate https://claraweb.jlab.org/clara/_downloads/install-claracre-clas.sh \
 	&& chmod u+x install-claracre-clas.sh \
 	# new version of clara requires typing "Y" to remove old home dir
 	&& echo Y | ./install-claracre-clas.sh -v $COATJTAG -f $CLARATAG \
@@ -96,7 +96,7 @@ RUN   mkdir -p $JLAB_SOFTWARE/clas12/lib \
 
 # CCDBSQLITE
 RUN cd /jlab/work \
-	&& wget --no-check-certificate https://www.jlab.org/12gev_phys/packages/ccdb/$CCDBSQLITE
+	&& wget -q --no-check-certificate https://www.jlab.org/12gev_phys/packages/ccdb/$CCDBSQLITE
 
 # Generators
 	# clasdis generator
@@ -127,7 +127,7 @@ RUN cd /jlab/work \
 	
 # ced
 RUN	cd /jlab/work \
-	&& wget https://userweb.jlab.org/~heddle/ced/builds/ced.1.4.04.H4.tar.gz	 \
+	&& wget -q https://userweb.jlab.org/~heddle/ced/builds/ced.1.4.04.H4.tar.gz	 \
 	&& tar -zxpvf ced.1.4.04.H4.tar.gz	 \
 	&& rm ced.1.4.04.H4.tar.gz
 
