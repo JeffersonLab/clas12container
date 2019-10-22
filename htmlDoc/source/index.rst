@@ -63,16 +63,6 @@ Quickstart: Submit Jobs to OSG
 
 Work in progress, coming soon.
 
-..
-   Login to scosg16 and copy the steering card template somewhere you can edit::
-
-   ssh scosg16.jlab.org
-   cp /group/clas12/offsite-simulations/scard.txt .
-   EDIT FILE
-
-   Run submit.py with -s option to submit jobs to OSG::
-
-   /group/clas12/offsite-simulations/submit.py -s scard.txt
 
 
 |br|
