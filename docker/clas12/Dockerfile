@@ -90,7 +90,7 @@ RUN   mkdir -p $JLAB_SOFTWARE/clas12/lib \
 	&& tar -zxpvf $JAVADOWNLOAD \
 	# reconstruction: coatjava. untar file in coatjava directory
 	&& cd $JLAB_SOFTWARE/clas12 \
-	&& wget -q --no-check-certificate https://github.com/JeffersonLab/clas12-offline-software/archive/$COATJTAG.tar.gz \
+	&& wget -q --no-check-certificate https://clasweb.jlab.org/clas12offline/distribution/coatjava/coatjava-$COATJTAG.tar.gz \
 	&& mkdir -p coatjava ; tar -zxpvf $COATJTAG.tar.gz  --strip-components 1 -C coatjava
 
 
