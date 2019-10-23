@@ -26,10 +26,20 @@ export CLAS12_LIB=$JLAB_SOFTWARE/clas12/lib
 export CLAS12_INC=$JLAB_SOFTWARE/clas12/inc
 export CLAS12_BIN=$JLAB_SOFTWARE/clas12/bin
 
-export COATJAVA=$JLAB_SOFTWARE/clas12/coatjava
-export JAVA_HOME=$JLAB_SOFTWARE/jdk-$JAVATAG
+export CLARA_HOME=$JLAB_ROOT/$JLAB_VERSION/claraHome
+if  [ -d $CLARA_HOME)
+then
+	export COATJAVA=$CLARA_HOME/plugins/clas12
+	export JAVA_HOME=$CLARA_HOME/jre/$JRE
+	export PATH=${JAVA_HOME}/bin:${PATH}:${CLAS12_BIN}:${COATJAVA}/bin:${CLARA_HOME}/bin
+else
+	export COATJAVA=$JLAB_SOFTWARE/clas12/coatjava
+	export JAVA_HOME=$JLAB_SOFTWARE/jdk-$JAVATAG
+fi
 
-export PATH=${JAVA_HOME}/bin:${PATH}:${CLAS12_BIN}:${COATJAVA}/bin:${CLARA_HOME}/bin
+
+
+export PATH=${JAVA_HOME}/bin:${PATH}:${CLAS12_BIN}:${COATJAVA}/bin
 
 set autolist
 alias l='ls -l'

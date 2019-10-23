@@ -26,10 +26,18 @@ setenv CLAS12_LIB $JLAB_SOFTWARE/clas12/lib
 setenv CLAS12_INC $JLAB_SOFTWARE/clas12/inc
 setenv CLAS12_BIN $JLAB_SOFTWARE/clas12/bin
 
-setenv COATJAVA  $JLAB_SOFTWARE/clas12/coatjava
-setenv JAVA_HOME $JLAB_SOFTWARE/jdk-$JAVATAG
+setenv CLARA_HOME $JLAB_ROOT/$JLAB_VERSION/claraHome
 
-setenv PATH ${PATH}:${JAVA_HOME}/bin:${CLAS12_BIN}:${COATJAVA}/bin:${CLARA_HOME}/bin
+if (-d $CLARA_HOME) then
+	setenv COATJAVA   $CLARA_HOME/plugins/clas12
+	setenv JAVA_HOME  $CLARA_HOME/jre/$JRE
+	setenv PATH ${PATH}:${CLARA_HOME}/bin
+else
+	setenv COATJAVA  $JLAB_SOFTWARE/clas12/coatjava
+	setenv JAVA_HOME $JLAB_SOFTWARE/jdk-$JAVATAG
+endif
+
+setenv PATH ${PATH}:${JAVA_HOME}/bin:${CLAS12_BIN}:${COATJAVA}/bin
 
 set autolist
 alias l ls -l
