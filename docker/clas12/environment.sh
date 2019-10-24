@@ -5,6 +5,11 @@ export JLAB_VERSION=2.3
 export CLAS12TAG=4.3.1
 export JAVATAG=11.0.5
 
+# some OSG nodes have XERCESROOT defined. Since we use keepmine we
+# need to re-define those here. Notice: this is dependent on the Dockerfile (CentOS version)
+export XERCESCROOT=/jlab/2.3/Linux_CentOS7.5.1804-x86_64-gcc4.8.5/xercesc/3.2.2
+export XERCESC_VERSION=3.2.2
+
 # using sqlite
 export CCDB_CONNECTION=sqlite:////jlab/work/ccdb_2019-08-04.sqlite
 
