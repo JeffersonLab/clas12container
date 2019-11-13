@@ -32,7 +32,7 @@ export CLAS12_INC=$JLAB_SOFTWARE/clas12/inc
 export CLAS12_BIN=$JLAB_SOFTWARE/clas12/bin
 
 export CLARA_HOME=$JLAB_ROOT/$JLAB_VERSION/claraHome
-if  [ -d $CLARA_HOME)
+if  [ -d $CLARA_HOME ];
 then
 	export COATJAVA=$CLARA_HOME/plugins/clas12
 	export JAVA_HOME=$CLARA_HOME/jre/$JRE
