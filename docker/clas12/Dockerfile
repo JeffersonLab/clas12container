@@ -55,7 +55,8 @@ ENV JAVADOWNLOAD jdk-$JAVATAG"_linux-x64_bin.tar.gz"
 # root for genKYandOnePion and evio2root
 
 
-RUN yum install -y gcc-gfortran root
+RUN yum install -y gcc-gfortran root root-montecarlo-eg \
+	&& yum clean all
 
 WORKDIR $JLAB_ROOT
 
@@ -99,7 +100,7 @@ RUN cd /jlab/work \
 	&& wget -q --no-check-certificate https://www.jlab.org/12gev_phys/packages/ccdb/$CCDBSQLITE
 
 # Generators
-	# clasdis generator
+# clasdis generator
 RUN cd /jlab/work \
 	&& git clone https://github.com/JeffersonLab/clasdis-nocernlib \
 	&& cd clasdis-nocernlib \
@@ -123,7 +124,14 @@ RUN cd /jlab/work \
 	&& cd genKYandOnePion \
 	&& chmod +x COMPILE_eg_ky \
 	&& ./COMPILE_eg_ky \
-	&& cp eg_ky $JLAB_SOFTWARE/clas12/bin 
+	&& cp eg_ky $JLAB_SOFTWARE/clas12/bin \
+	# 2pi_event_generator
+	&& cd /jlab/work \
+	&& git clone https://github.com/tylern4/Hybrid-Baryons.git \
+	&& cd Hybrid-Baryons \
+	&& mkdir build && cd build \
+	&& cmake .. -DUSE_CLIPP=ON -DCMAKE_INSTALL_PREFIX=$JLAB_SOFTWARE/clas12 \
+	&& make install
 
 # Temp /condor for el6 binding
 RUN mkdir /condor \

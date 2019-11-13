@@ -18,6 +18,7 @@ export CLASDIS_PDF=/jlab/work/clasdis-nocernlib/pdf
 export DISRAD_PDF=/jlab/work/inclusive-dis-rad
 export CLASDVCS_PDF=/jlab/work/dvcsgen
 export DataKYandOnePion=/jlab/work/genKYandOnePion/data
+export data_dir_2pi=/jlab/work/Hybrid-Baryons/2pi_event_generator/
 
 export GEMC=/jlab/clas12Tags/$CLAS12TAG/source
 export GEMC_VERSION=$CLAS12TAG

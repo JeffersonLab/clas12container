@@ -18,6 +18,7 @@ setenv CLASDIS_PDF      /jlab/work/clasdis-nocernlib/pdf
 setenv DISRAD_PDF       /jlab/work/inclusive-dis-rad
 setenv CLASDVCS_PDF     /jlab/work/dvcsgen
 setenv DataKYandOnePion /jlab/work/genKYandOnePion/data
+setenv data_dir_2pi /jlab/work/Hybrid-Baryons/2pi_event_generator/
 
 setenv GEMC /jlab/clas12Tags/$CLAS12TAG/source
 setenv GEMC_VERSION $CLAS12TAG
