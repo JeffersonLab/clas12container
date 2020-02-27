@@ -99,31 +99,18 @@ RUN cd /jlab/work \
 	&& wget -q --no-check-certificate https://www.jlab.org/12gev_phys/packages/ccdb/$CCDBSQLITE
 
 # Generators
-	# clasdis generator
 RUN cd /jlab/work \
-	&& git clone https://github.com/JeffersonLab/clasdis-nocernlib \
-	&& cd clasdis-nocernlib \
+	&& git clone --recurse-submodules https://github.com/JeffersonLab/clas12-mcgen.git \
+	&& cp -r clas12-mcgen/* . && rm -rf clas12-mcgen \
 	&& make \
-	&& cp clasdis $JLAB_SOFTWARE/clas12/bin \
-	# inclusive dis with radiative correction
-	&& cd /jlab/work \
-	&& git clone https://github.com/JeffersonLab/inclusive-dis-rad.git \
-	&& cd inclusive-dis-rad \
-	&& make \
-	&& cp generate-dis $JLAB_SOFTWARE/clas12/bin \
-	# clasdvcs
-	&& cd /jlab/work \
-	&& git clone https://github.com/JeffersonLab/dvcsgen.git \
-	&& cd dvcsgen \
-	&& make \
-	&& cp dvcsgen $JLAB_SOFTWARE/clas12/bin \
-	# genKYandOnePion
-	&& cd /jlab/work \
-	&& git clone https://github.com/ValeriiKlimenko/genKYandOnePion \
-	&& cd genKYandOnePion \
-	&& chmod +x COMPILE_eg_ky \
-	&& ./COMPILE_eg_ky \
-	&& cp eg_ky $JLAB_SOFTWARE/clas12/bin 
+	# TODO: This works for not but should be added as a make install step 
+	# so the dockerfile doesn't need to be modified when new generators are added 
+	# only clas12-mcgen makefile
+	&& cp clasdis/clasdis $JLAB_SOFTWARE/clas12/bin \
+	&& cp inclusive-dis-rad/inclusive-dis-rad $JLAB_SOFTWARE/clas12/bin/generate-dis \
+	&& cp dvcsgen/dvcsgen $JLAB_SOFTWARE/clas12/bin \
+	&& cp genKYandOnePion/genKYandOnePion $JLAB_SOFTWARE/clas12/bin/eg_ky \
+	&& cp tcsgen/TCSGen.exe $JLAB_SOFTWARE/clas12/bin
 
 # Temp /condor for el6 binding
 RUN mkdir /condor \
