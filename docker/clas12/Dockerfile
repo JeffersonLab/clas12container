@@ -102,15 +102,7 @@ RUN cd /jlab/work \
 RUN cd /jlab/work \
 	&& git clone --recurse-submodules https://github.com/JeffersonLab/clas12-mcgen.git \
 	&& cp -r clas12-mcgen/* . && rm -rf clas12-mcgen \
-	&& make \
-	# TODO: This works for not but should be added as a make install step 
-	# so the dockerfile doesn't need to be modified when new generators are added 
-	# only clas12-mcgen makefile
-	&& cp clasdis/clasdis $JLAB_SOFTWARE/clas12/bin \
-	&& cp inclusive-dis-rad/inclusive-dis-rad $JLAB_SOFTWARE/clas12/bin/generate-dis \
-	&& cp dvcsgen/dvcsgen $JLAB_SOFTWARE/clas12/bin \
-	&& cp genKYandOnePion/genKYandOnePion $JLAB_SOFTWARE/clas12/bin/eg_ky \
-	&& cp tcsgen/TCSGen.exe $JLAB_SOFTWARE/clas12/bin
+	&& make && make install 
 
 # Temp /condor for el6 binding
 RUN mkdir /condor \
