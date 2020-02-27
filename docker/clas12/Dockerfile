@@ -55,7 +55,8 @@ ENV JAVADOWNLOAD jdk-$JAVATAG"_linux-x64_bin.tar.gz"
 # root for genKYandOnePion and evio2root
 
 
-RUN yum install -y gcc-gfortran root
+RUN yum install -y gcc-gfortran root root-montecarlo-eg \
+	&& yum clean all
 
 WORKDIR $JLAB_ROOT
 
@@ -99,7 +100,7 @@ RUN cd /jlab/work \
 	&& wget -q --no-check-certificate https://www.jlab.org/12gev_phys/packages/ccdb/$CCDBSQLITE
 
 # Generators
-	# clasdis generator
+# clasdis generator
 RUN cd /jlab/work \
 	&& git clone https://github.com/JeffersonLab/clasdis-nocernlib \
 	&& cd clasdis-nocernlib \
