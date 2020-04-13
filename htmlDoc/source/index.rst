@@ -43,7 +43,7 @@ You can find the number of cores of your system by issuing this command::
 Quickstart: GEMC examples, interactively (MacOS)
 ================================================
 
-First, ppen the XQuartz app and go to preferences and activate the option ‘Allow connections from network clients’ in XQuartz settings.
+First, open the XQuartz app and go to preferences and activate the option ‘Allow connections from network clients’ in XQuartz settings.
 This will allow XQuartz to receive display messages from network clients, such as docker.
 
 Second, from any terminal::
