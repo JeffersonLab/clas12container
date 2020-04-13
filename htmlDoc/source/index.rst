@@ -43,13 +43,30 @@ You can find the number of cores of your system by issuing this command::
 Quickstart: GEMC examples, interactively (MacOS)
 ================================================
 
-Use the following commands (on Mac) to run gemc interactively::
+First, ppen the XQuartz app and go to preferences and activate the option ‘Allow connections from network clients’ in XQuartz settings.
+This will allow XQuartz to receive display messages from network clients, such as docker.
 
- defaults write org.macosforge.xquartz.X11 enable_iglx -bool true
+Second, from any terminal::
+
+    defaults write org.macosforge.xquartz.X11 enable_iglx -bool true
+
+This will be useful when running gemc: it will allow OPENGL to use your graphic card.
+
+|br|
+
+Restart XQuartz to activate these changes.
+
+|br|
+
+Finally, add your localhost to the list of accepted X11 connections::
+
  xhost +127.0.0.1
- docker run -it --rm -e DISPLAY=docker.for.mac.localhost:0 jeffersonlab/clas12simulations:iprod bash
- cd /jlab/clas12Tags/4.3.1/experiments/clas12/ctof/
- gemc ctof.gcard
+
+You should be able now to run docker and use the native X server to open windows application. For example::
+
+ docker run -it --rm -v ~/mywork:/jlab/work/mywork -e DISPLAY=docker.for.mac.localhost:0 jeffersonlab/clas12simulations:iprod bash
+
+That's a loooooong command isn't it? Good thing you can copy and paste it.
 
 
 
