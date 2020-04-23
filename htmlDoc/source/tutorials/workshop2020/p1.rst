@@ -18,11 +18,11 @@ Docker Container:
 
 - run the container interactively, using a working directory
 - see / run the available generator executables in the container
-- use different experiment configurations (e.g. rga spring, rgb winter)
+- check out the different experiment configurations (e.g. rga spring, rgb winter)
 - run GEMC using the rga fall 2018 configuration
-- create a new target
-- create and use a new dipole field
+- change the target material to vacuum
 - use container libraries (clhep, geant4, etc) to recompile gemc version 4.3.2
+- create and use a new dipole field
 
 |br|
 
@@ -90,7 +90,7 @@ Once the download is complete, it will run the container. It will look like a no
 
 |br|
 
-At this point you should be able to run "gemc" and check that you indeed see both the GUI interface and the 
+At this point you should be able to run "gemc" and check that you indeed see both the GUI interface and the
 
 Type `exit` to quit this docker image.
 

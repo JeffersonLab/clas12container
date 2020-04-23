@@ -10,7 +10,10 @@ CLAS12 Workshop April 2020 - *4/5*
 ==================================
 
 
-As the final step in this tutorial, let's use the docker libraries to compile a custom version of the clas12tag 4.3.2.
+Use container libraries to recompile gemc version 4.3.2
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Let's use the container installed libraries to compile a custom version of the clas12tag 4.3.2.
 Let's go to the gemc source:
 
 .. code-block:: ruby
@@ -39,6 +42,30 @@ To verify that your changes have been implememted run the "./gemc" executable, y
 .. code-block:: ruby
 
  ./gemc -USE_GUI=0
+
+
+Create and use a new dipole field
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create a new text file with the following content:
+
+.. code-block:: ruby
+
+ touch dipole.dat
+ nano -c dipole.dat
+
+ <mfield>
+  <description name="simple_dipole1" factory="ASCII" comment="simple dipole example"/>
+  <symmetry type="multipole" format="simple" integration="G4ClassicalRK4" minStep="1*mm"/>
+  <dimension Npole="2" scale="1" Bunit="T" />
+ </mfield>
+
+
+This creates simple dipole field (default direction: y axis)
+
+
+For more information on magnetic fields see https://gemc.jlab.org/gemc/html/documentation/fields/fields.html
+
 
 
 
