@@ -51,6 +51,7 @@ Create a new text file with the following content:
 
 .. code-block:: ruby
 
+ cd /jlab/work/mywork/detectors/clas12/targets/
  touch dipole.dat
  nano -c dipole.dat
 
@@ -81,3 +82,6 @@ For more information on magnetic fields see https://gemc.jlab.org/gemc/html/docu
 	:target: 	p4.html
 	:align: left
 
+.. image:: ../next.png
+	:target: 	p6.html
+	:align: right

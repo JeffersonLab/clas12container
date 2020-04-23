@@ -17,11 +17,14 @@ The OSG Portal is:
 
 https://gemc.jlab.org/web_interface/index.php
 
-The portal software supports a priority system: in summary, the priority is inversely proportional to the
-number of running jobs. This assures that if you submit new jobs to OSG, your jobs will start immediately.
+The portal software supports a priority system.
+
+
+This assures that if you submit new jobs to OSG, your jobs will start immediately.
 At regime, all users have the same amount of running jobs.
 
-Check out the OSG Stats link
+
+Check out the OSG Stats link.
 
 
 
@@ -29,6 +32,7 @@ Current and future container contents
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The current OSG production container contains clas12tags 4.3.1 and coatjava 6b.3.2.
+
 The new container will have clas12tags 4.3.2 and coatjava 6.5.3.
 
 
@@ -53,6 +57,3 @@ For type 2, you can use the lund address::
 	:align: left
 
 
-.. image:: ../next.png
-	:target: 	p7.html
-	:align: right
