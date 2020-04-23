@@ -21,7 +21,7 @@ Let's go to the gemc source:
  cd $GEMC
  pwd
 
-This shows you that you are indded using the 4.3.2 version of clas12tags.
+This shows that you are indded using the 4.3.2 version of clas12tags.
 
 |br|
 
@@ -61,7 +61,12 @@ Create a new text file with the following content:
  </mfield>
 
 
-This creates simple dipole field (default direction: y axis)
+This creates simple dipole field (default direction: y axis). To use it, we need to tell gemc where to look for it.
+
+.. code-block:: ruby
+
+ export FIELD_DIR=.
+ gemc target.gcard -HALL_FIELD=simple_dipole1 -FIELD_VERBOSITY=10
 
 
 For more information on magnetic fields see https://gemc.jlab.org/gemc/html/documentation/fields/fields.html

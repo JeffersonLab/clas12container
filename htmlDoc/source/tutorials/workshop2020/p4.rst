@@ -10,7 +10,7 @@ CLAS12 Workshop April 2020 - *4/5*
 ==================================
 
 
-Create a mew target using the GEMC api
+Create a new target using the GEMC api
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Let's download the clas12 detector sources.

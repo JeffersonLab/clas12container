@@ -91,6 +91,7 @@ Once the download is complete, it will run the container. It will look like a no
 |br|
 
 At this point you should be able to run "gemc" and check that you indeed see both the GUI interface and the
+(empty for now) detector screen.
 
 Type `exit` to quit this docker image.
 
