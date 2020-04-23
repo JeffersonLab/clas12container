@@ -6,7 +6,7 @@
    <br>
 
 ==================================
-CLAS12 Workshop April 2020 - *1/5*
+CLAS12 Workshop April 2020 - *1/6*
 ==================================
 
 In this tutorial you will learn how to explore the clas12tags 4.3.2 container. In particular:
@@ -29,7 +29,7 @@ Docker Container:
 OSG:
 ^^^^
 
-- OSG resources
+- OSG resources and priorities
 - current and future container contents
 - submit type 1 and 2 simulations jobs
 
