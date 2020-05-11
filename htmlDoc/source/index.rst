@@ -66,7 +66,32 @@ You should be able now to run docker and use the native X server to open windows
 
  docker run -it --rm -v ~/mywork:/jlab/work/mywork -e DISPLAY=docker.for.mac.localhost:0 jeffersonlab/clas12simulations:iprod bash
 
-That's a loooooong command isn't it? Good thing you can copy and paste it.
+|br|
+
+
+Quickstart: GEMC examples, interactively (Linux)
+================================================
+
+Add your localhost to the list of accepted X11 connections with either one of these two commands:
+
+.. code-block:: ruby
+
+ xhost 127.0.0.1
+ xhost local:root
+
+Export the env variable DISPLAY:
+
+.. code-block:: ruby
+
+ export DISPLAY=:0
+
+Run the command using your local x11 tmp dir:
+
+.. code-block:: ruby
+
+ docker run -it --rm -v /tmp/.X11-unix:/tmp/.X11-unix -v ~/mywork:/jlab/work/mywork -e DISPLAY=$DISPLAY  jeffersonlab/clas12tags:4.3.2 /bin/bash
+
+|br|
 
 
 
