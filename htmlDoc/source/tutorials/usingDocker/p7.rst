@@ -11,8 +11,8 @@ CLAS12 Docker Tutorial  - *7/10*
 
 Use either the interactive or the vnc option to run docker::
 
- docker run -it --rm -v ~/mywork:/jlab/work/mywork -e DISPLAY=docker.for.mac.localhost:0 jeffersonlab/clas12simulations:iprod bash
- docker run -it --rm -v ~/mywork:/jlab/work/mywork -p 6080:6080 jeffersonlab/clas12simulations:iprod
+ docker run -it --rm -v ~/mywork:/jlab/work/mywork -e DISPLAY=docker.for.mac.localhost:0 jeffersonlab/clas12software:production bash
+ docker run -it --rm -v ~/mywork:/jlab/work/mywork -p 6080:6080 jeffersonlab/clas12software:production
 
 
 

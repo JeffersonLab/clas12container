@@ -25,7 +25,7 @@ Let's launch docker and mount this directory inside the jlab work dir. We do thi
 
 .. code-block:: ruby
 
- docker run -it --rm  -v ~/mywork:/jlab/work/mywork jeffersonlab/clas12simulations:iprod bash
+ docker run -it --rm  -v ~/mywork:/jlab/work/mywork jeffersonlab/clas12software:production bash
 
 Now /jlab/work/mywork will point to your mywork homedir. Inside docker, try this:
 

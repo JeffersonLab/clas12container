@@ -32,7 +32,7 @@ Now let's launch docker and mount this directory inside the jlab work dir. We do
 
 .. code-block:: ruby
 
- docker run -it --rm  -v ~/mywork:/jlab/work/mywork jeffersonlab/clas12simulations:iprod bash
+ docker run -it --rm  -v ~/mywork:/jlab/work/mywork jeffersonlab/clas12software:production bash
 
 |br|
 

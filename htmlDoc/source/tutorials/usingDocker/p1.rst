@@ -32,7 +32,7 @@ Use the following command to run docker for the first time:
 
 .. code-block:: ruby
 
- docker run -it --rm jeffersonlab/clas12simulations:iprod bash
+ docker run -it --rm jeffersonlab/clas12software:production bash
 
 |br|
 
@@ -41,7 +41,7 @@ You will see a log similar to this:
 
 .. code-block:: text
 
- Unable to find image 'jeffersonlab/clas12simulations:iprod' locally
+ Unable to find image 'jeffersonlab/clas12software:production' locally
  production: Pulling from jeffersonlab/clas12simulations
  7dc0dca2b151: Downloading [===========>                                       ]  17.19MB/74.69MB
  a1805b8a2cb4: Download complete
@@ -103,7 +103,7 @@ You should occasionally make sure your image is up-to-date:
 
 .. code-block:: ruby
 
- docker pull jeffersonlab/clas12simulations:iprod
+ docker pull jeffersonlab/clas12software:production
 
 
 

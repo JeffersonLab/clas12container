@@ -31,7 +31,7 @@ Use the following command to run docker for the first time:
 
 .. code-block:: ruby
 
- docker run -it --rm jeffersonlab/clas12simulations:iprod bash
+ docker run -it --rm jeffersonlab/clas12software:production bash
 
 |br|
 

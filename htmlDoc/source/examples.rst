@@ -10,7 +10,7 @@ Batch mode
 
 Use the following command to open a bash session on the container (the first time you run this it will also download it). You can also replace bash with tcsh::
 
- docker run -it --rm jeffersonlab/clas12simulations:iprod bash
+ docker run -it --rm jeffersonlab/clas12software:production bash
 
 This will open a bash session in the /jlab/workdir directory.
 
@@ -28,7 +28,7 @@ You can use the option::
 
 to mount your local OS directories to be visible in docker. For example, to mount the "maximilian" home directory in a /max dir in the container::
 
- docker run -it --rm  -v /home/max:/jlab/work/max jeffersonlab/clas12simulations:iprod bash
+ docker run -it --rm  -v /home/max:/jlab/work/max jeffersonlab/clas12software:production bash
 
 */jlab/work//max* will now point to maximilian home dir. You can save work here.
 
@@ -41,7 +41,7 @@ Graphic mode (**browser**)
 
 Use the following command to pass the 6080 port to noVnc so the container can be opened on a brower::
 
- docker run -it --rm -p 6080:6080 jeffersonlab/clas12simulations:iprod
+ docker run -it --rm -p 6080:6080 jeffersonlab/clas12software:production
 
 Using your web brower open the page::
 
@@ -74,7 +74,7 @@ Graphic mode (**vnc**)
 
 Use the following command to pass the 5901 and the 6080 ports necessary to open the container with a vnc client::
 
- docker run -it --rm  -p 6080:6080 -p 5901:5901 jeffersonlab/clas12simulations:iprod
+ docker run -it --rm  -p 6080:6080 -p 5901:5901 jeffersonlab/clas12software:production
 
 You can now open localhost:5901 with your vnc client.
 
@@ -93,7 +93,7 @@ On a mac, if you allow access from localhost with::
 
 Then you can run docker and use the local X server with::
 
- docker run -it --rm -e DISPLAY=docker.for.mac.localhost:0 jeffersonlab/clas12simulations:iprod bash
+ docker run -it --rm -e DISPLAY=docker.for.mac.localhost:0 jeffersonlab/clas12software:production bash
 
 You can run gemc in batch mode this way, but still enjoy the ability to open windows on the local host.
 
@@ -110,7 +110,7 @@ Using Generators
 
 Run the container in batch mode (substitute the max's path with your home dir path)
 
- docker run -it --rm  -v /home/max:/jlab/work/max jeffersonlab/clas12simulations:iprod bash
+ docker run -it --rm  -v /home/max:/jlab/work/max jeffersonlab/clas12software:production bash
 
 Find below the ways to generate events.
 

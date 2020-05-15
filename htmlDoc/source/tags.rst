@@ -7,7 +7,7 @@
 
 |br|
 
-iProd (currently 1.3)
+production
 ==========================
 
 - generators:
@@ -17,10 +17,9 @@ iProd (currently 1.3)
   - clasdvcs
   - genKYandOnePion
 
-- gemc: `version 4.3.1 <https://github.com/gemc/clas12Tags/blob/master/README.md#in-development>`_,
-- CLARA: 4.3.10
-- Coatjava: 6.3.1
-- ced 1.4.04
+- gemc: `version 4.3.2 <https://github.com/gemc/clas12Tags/blob/master/README.md#in-development>`_,
+- Coatjava: 6.5.3
+- ced 1.4.52
 
 
 |

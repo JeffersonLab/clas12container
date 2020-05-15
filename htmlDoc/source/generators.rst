@@ -23,7 +23,7 @@ Adding a new generator to the container
 1. Store the code on a git repository.
 2. Make sure you can run the clas12simulations container::
 
-    docker run -it --rm jeffersonlab/clas12simulations:iprod bash
+    docker run -it --rm jeffersonlab/clas12software:production bash
 
 3. Once inside the container, verify your instructions on the requirements and how to compile the generator inside the container. For example::
 

@@ -39,7 +39,7 @@ Finally, add your localhost to the list of accepted X11 connections::
 
 You should be able now to run docker and use the native X server to open windows application. From now on, this is the command to use::
 
- docker run -it --rm -v ~/mywork:/jlab/work/mywork -e DISPLAY=docker.for.mac.localhost:0 jeffersonlab/clas12simulations:iprod bash
+ docker run -it --rm -v ~/mywork:/jlab/work/mywork -e DISPLAY=docker.for.mac.localhost:0 jeffersonlab/clas12software:production bash
 
 That's a loooooong command isn't it? Good thing you can copy and paste it.
 
@@ -60,7 +60,7 @@ Export the env variable DISPLAY::
 
 Run the command using your local x11 tmp dir::
 
- docker run -it --rm -v /tmp/.X11-unix:/tmp/.X11-unix -v ~/mywork:/jlab/work/mywork -e DISPLAY=$DISPLAY  jeffersonlab/clas12simulations:iprod /bin/bash
+ docker run -it --rm -v /tmp/.X11-unix:/tmp/.X11-unix -v ~/mywork:/jlab/work/mywork -e DISPLAY=$DISPLAY  jeffersonlab/clas12software:production /bin/bash
 
 |br|
 
@@ -72,7 +72,7 @@ If the above does not work, we can always open a X session using the browser.
 
 The command is now::
 
- docker run -it --rm -v ~/mywork:/jlab/work/mywork -p 6080:6080 jeffersonlab/clas12simulations:iprod
+ docker run -it --rm -v ~/mywork:/jlab/work/mywork -p 6080:6080 jeffersonlab/clas12software:production
 
 Notice "bash" is no longer present at the end of the command line. This means that the docker image will start the X11 server instead, using the port 6080.
 

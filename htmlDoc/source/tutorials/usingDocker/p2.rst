@@ -98,7 +98,7 @@ gives:
 .. code-block:: text
 
  CONTAINER ID        IMAGE                                  COMMAND   CREATED        STATUS
- 42aa50dccf88        jeffersonlab/clas12simulations:iprod   "bash"    4 seconds ago  Up 3 seconds
+ 42aa50dccf88        jeffersonlab/clas12software:production   "bash"    4 seconds ago  Up 3 seconds
 
 
 |br|

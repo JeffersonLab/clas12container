@@ -38,7 +38,7 @@ Let's now use the "mine" variation of the geometry. Let's run docker again and g
 
 .. code-block:: ruby
 
- docker run -it --rm  -v ~/mywork:/jlab/work/mywork jeffersonlab/clas12simulations:iprod bash
+ docker run -it --rm  -v ~/mywork:/jlab/work/mywork jeffersonlab/clas12software:production bash
  cd mywork/clasdis/
 
 To use "mine" we need to specify the full path to the geometry. Change the line:
