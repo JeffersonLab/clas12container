@@ -100,31 +100,10 @@ RUN cd /jlab/work \
 	&& wget -q --no-check-certificate https://www.jlab.org/12gev_phys/packages/ccdb/$CCDBSQLITE
 
 # Generators
-	# clasdis generator
 RUN cd /jlab/work \
-	&& git clone https://github.com/JeffersonLab/clasdis-nocernlib \
-	&& cd clasdis-nocernlib \
-	&& make \
-	&& cp clasdis $JLAB_SOFTWARE/clas12/bin \
-	# inclusive dis with radiative correction
-	&& cd /jlab/work \
-	&& git clone https://github.com/JeffersonLab/inclusive-dis-rad.git \
-	&& cd inclusive-dis-rad \
-	&& make \
-	&& cp generate-dis $JLAB_SOFTWARE/clas12/bin \
-	# clasdvcs
-	&& cd /jlab/work \
-	&& git clone https://github.com/JeffersonLab/dvcsgen.git \
-	&& cd dvcsgen \
-	&& make \
-	&& cp dvcsgen $JLAB_SOFTWARE/clas12/bin \
-	# genKYandOnePion
-	&& cd /jlab/work \
-	&& git clone https://github.com/ValeriiKlimenko/genKYandOnePion \
-	&& cd genKYandOnePion \
-	&& chmod +x COMPILE_eg_ky \
-	&& ./COMPILE_eg_ky \
-	&& cp eg_ky $JLAB_SOFTWARE/clas12/bin
+	&& git clone --recurse-submodules https://github.com/JeffersonLab/clas12-mcgen.git \
+	&& cp -r clas12-mcgen/* . && rm -rf clas12-mcgen \
+	&& make && make install 
 	
 # ced
 RUN	cd /jlab/work \
