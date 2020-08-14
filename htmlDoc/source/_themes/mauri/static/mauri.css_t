@@ -11,6 +11,7 @@
 * {
 	margin: 0px;
 	padding: 0px;
+    max-width: 800;
 }
 
 body {
@@ -18,13 +19,8 @@ body {
 	line-height: 1.5em;
 	color: black;
 	background-color: {{ theme_bgcolor }};
-	font-size: 110%;
 }
 
-div.bodywrapper {
-	margin: 0 0px 0 0;
-	border-right: 1px solid #ccc;
-}
 
 /* Page layout */
 div.header, div.content, div.footer {
@@ -44,7 +40,7 @@ a {
 	color: {{ theme_linkcolor }};
 }
 
-div.bodywrapper a, div.footer a {
+div.bodywrapper a {
 	text-decoration: none;
 }
 
@@ -67,17 +63,6 @@ div.bodywrapper a:hover, div.header a:hover {
 	float: center;
 }
 
-.line-block {
-	display: block;
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-.line-block .line-block {
-	margin-top: 0;
-	margin-bottom: 0;
-	margin-left: 1.5em;
-}
 
 h1, h2, h3, h4 {
 	font-family: {{ theme_headerfont }};
@@ -120,12 +105,11 @@ div.header {
 div.header .headertitle {
 	font-family: {{ theme_headerfont }};
 	font-weight: normal;
-	font-size: 300%;
+	font-size: 250%;
 	margin-bottom: .1em;
 	margin-top: .3em;
 	float: center;
 	color: #504a87;
-	
 }
 
 div.header div.rel {
@@ -187,9 +171,14 @@ div.document dd {
 	margin-bottom: 1em;
 }
 
-div.document .section {
+div.document .section .section.p {
 	margin-top: 1.7em;
+	margin-left: auto;
+	margin-right: auto;
+	word-wrap: break-word;
+    max-width: none;
 }
+
 
 div.document .section:first-child {
 	margin-top: 0px;
@@ -204,7 +193,9 @@ div.document div.highlight {
 	margin-top: .8em;
 	margin-bottom: .8em;
 	font-size: 110%;
-	
+    max-width: none;
+    overflow: auto;
+
 }
 
 div.document div.literal-block-wrapper {
@@ -397,7 +388,6 @@ div.footer-wrapper {
 	padding-bottom: 10px;
 	min-height: 60px;
 	font-size: 80%;
-	
 }
 
 
@@ -485,7 +475,6 @@ ul.search {
 
 ul.search li {
 	padding: 5px 0 5px 20px;
-	background-image: url(file.png);
 	background-repeat: no-repeat;
 	background-position: 0 7px;
 }

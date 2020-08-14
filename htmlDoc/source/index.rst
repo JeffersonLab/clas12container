@@ -106,7 +106,7 @@ Container content
 
 The clas12software:production docker image contains:
 
-- various :ref:`generators <generators>` 
+- `CLAS12 generators <https://github.com/JeffersonLab/clas12-mcgen>`_
 - gemc with the clas12 geometry
 - Coatjava
 - the *CLAS12_BIN*, *CLAS12_LIB*, *CLAS12_INC* dirs and environment variables

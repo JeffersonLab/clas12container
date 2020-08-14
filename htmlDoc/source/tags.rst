@@ -7,8 +7,9 @@
 
 |br|
 
-production
-==========================
+
+4.3.2 (production)
+==================
 
 - generators:
 
@@ -22,34 +23,22 @@ production
 - ced 1.4.52
 
 
-|
 
-1.2
-===
+4.4.0 (devel)
+=============
 
-- gemc: `version 4.3.0 <https://github.com/gemc/clas12Tags/blob/master/README.md#in-development>`_,
-- CLARA: 4.3.8
-- Coatjava: 6.3.1
-- ced 1.06
+- generators:
 
-|
+  - clasdis
+  - claspyth
+  - dvcsgen
+  - genKYandOnePion
+  - inclusive-dis-rad
+  - tcsgen
+  - jpsigen
 
-|
+- gemc: `version 4.4.0 <https://github.com/gemc/clas12Tags/blob/master/README.md#in-development>`_,
 
-1.1
-===
-
-- gemc: `version 4.3.0 <https://github.com/gemc/clas12Tags/blob/master/README.md#in-development>`_,
-- CLARA: 4.3.4
-- Coatjava: 5.7.4
-- ced 1.06
-
-|
-
-1.0
-===
-
-- gemc: `version 4a.2.5 <https://github.com/gemc/clas12Tags/blob/master/README.md#in-development>`_,
-- CLARA: 4.3.3
-- Coatjava: 5b.7.1
-- ced 1.06
+- coatjava (CVMFS)
+- ced (CVMFS)
+- CCDB 4.4.0
