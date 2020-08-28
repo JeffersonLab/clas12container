@@ -1,3 +1,5 @@
+:orphan:
+
 .. |br| raw:: html
 
    <br>
@@ -8,13 +10,14 @@
 Batch mode
 ==========
 
-Use the following command to open a bash session on the container (the first time you run this it will also download it). You can also replace bash with tcsh::
+Use the pull command to make sure your image is up-to-date::
+
+ docker pull jeffersonlab/clas12software:production
+
+Use the following command to open a bash session on the container. You can also replace bash with tcsh::
 
  docker run -it --rm  -v /cvmfs:/cvmfs jeffersonlab/clas12software:production bash
 
-This will open a bash session in the /jlab/workdir directory. Remember to do a pull to make sure your image is up-to-date::
-
- docker pull jeffersonlab/clas12software:production 
 
 |br|
 
@@ -33,7 +36,7 @@ to mount your local OS directories to be visible in docker. For example, to moun
  docker run -it --rm   -v /cvmfs:/cvmfs -v /home/max:/jlab/work/max \
    jeffersonlab/clas12software:production bash
 
-*/jlab/work//max* will now point to maximilian home dir. You can save work here.
+*/jlab/work/max* will now point to maximilian home dir. You can save work here.
 
 |br|
 
@@ -51,10 +54,10 @@ Using your web brower open the page::
 
  http://localhost:6080
 
-After clicking connect the linux desktop is shown with a running shell.|br| |br|
+After clicking connect the linux desktop is shown with a running shell.|br|
 
 
-|br| |br|
+|br|
 
 .. note::
 
@@ -65,7 +68,7 @@ After clicking connect the linux desktop is shown with a running shell.|br| |br|
  - On the docker preferences try to make available as much memory as possible.
 
 
-|br| |br|
+|br|
 
 You can stop the docker container at any time with CTRL-C
 
@@ -74,7 +77,7 @@ You can stop the docker container at any time with CTRL-C
 .. _runningGEMCWithGraphicVNC:
 
 Graphic mode (vnc)
-======================
+==================
 
 Use the following command to pass the 5901 and the 6080 ports necessary to open the container with a vnc client::
 
@@ -87,8 +90,8 @@ You can now open localhost:5901 with your vnc client.
 
 .. _runningGEMCWithGraphicInteractive:
 
-**Native interactive** mode (no opengl)
-=======================================
+Native interactive mode (no opengl)
+===================================
 
 On a mac, if you allow access from localhost with::
 
@@ -131,6 +134,20 @@ Use the clas12.gcard in /jlab/workdir to launch gemc. For example, to run 200 ev
  gemc -USE_GUI=0 -INPUT_GEN_FILE="lund, dvcs.lund" -N=200 -BEAM_P="e-, 4*GeV, 20*deg, 5*deg"
 
 |br|
+
+
+Use a generator from clas12-mcgen
+---------------------------------
+
+To use one of the `events cenerators collected in clas12-mcgen <https://github.com/JeffersonLab/clas12-mcgen>`_, type its name and command line options.
+For example::
+
+ ./clasdis --trig 1000000 --nmax 10000
+
+will write gemc lund type data files with 10K events in the directory of 1M events.
+
+|br|
+
 
 Use a LUND generated file
 -------------------------

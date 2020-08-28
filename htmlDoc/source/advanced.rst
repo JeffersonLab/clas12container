@@ -36,11 +36,20 @@ Use this command to run sincularity using these images::
 |br|
 
 
-Container Tags
-==============
+Containers Content
+==================
 
 .. toctree::
 	:maxdepth: 1
 
 	tags
+
+
+Archived Containers Usage Instructions
+======================================
+
+.. toctree::
+	:maxdepth: 1
+
+	archive
 

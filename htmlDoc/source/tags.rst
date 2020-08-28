@@ -8,8 +8,30 @@
 |br|
 
 
-4.3.2 (production)
+4.4.0 (production)
 ==================
+
+- generators:
+
+  - clasdis
+  - claspyth
+  - dvcsgen
+  - genKYandOnePion
+  - inclusive-dis-rad
+  - tcsgen
+  - jpsigen
+
+- gemc: `version 4.4.0 <https://github.com/gemc/clas12Tags/blob/master/README.md#in-development>`_,
+
+- coatjava (CVMFS): 6.5.6.1 for rga or rgk, otherwise 6.5.9
+- ced (CVMFS)
+- CCDB sql file 4.4.0
+
+|br|
+
+
+4.3.2 (archived)
+================
 
 - generators:
 
@@ -24,21 +46,3 @@
 
 
 
-4.4.0 (devel)
-=============
-
-- generators:
-
-  - clasdis
-  - claspyth
-  - dvcsgen
-  - genKYandOnePion
-  - inclusive-dis-rad
-  - tcsgen
-  - jpsigen
-
-- gemc: `version 4.4.0 <https://github.com/gemc/clas12Tags/blob/master/README.md#in-development>`_,
-
-- coatjava (CVMFS)
-- ced (CVMFS)
-- CCDB 4.4.0
