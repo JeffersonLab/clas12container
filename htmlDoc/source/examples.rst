@@ -8,7 +8,7 @@
 .. _runningGEMCBatch:
 
 Batch mode
-==========
+----------
 
 Use the pull command to make sure your image is up-to-date::
 
@@ -24,7 +24,7 @@ Use the following command to open a bash session on the container. You can also 
 .. _runningGEMCMount:
 
 Mounting your directories to the container
-==========================================
+------------------------------------------
 
 The container will always start with the "pristine" image. In other words every work the the container filesystem will be lost when you exit docker.
 You can use the option::
@@ -43,7 +43,7 @@ to mount your local OS directories to be visible in docker. For example, to moun
 .. _runningGEMCWithGraphicBrowser:
 
 Graphic mode (browser)
-==========================
+----------------------
 
 Use the following command to pass the 6080 port to noVnc so the container can be opened on a brower::
 
@@ -77,7 +77,7 @@ You can stop the docker container at any time with CTRL-C
 .. _runningGEMCWithGraphicVNC:
 
 Graphic mode (vnc)
-==================
+------------------
 
 Use the following command to pass the 5901 and the 6080 ports necessary to open the container with a vnc client::
 
@@ -91,7 +91,7 @@ You can now open localhost:5901 with your vnc client.
 .. _runningGEMCWithGraphicInteractive:
 
 Native interactive mode (no opengl)
-===================================
+-----------------------------------
 
 On a mac, if you allow access from localhost with::
 
@@ -115,7 +115,7 @@ to visualize a subset of the CLAS12 detectors, not all of them.
 .. _runningGEMCGenerator:
 
 Using Generators
-================
+----------------
 
 Run the container in batch mode (substitute the max's path with your home dir path)::
 
@@ -166,7 +166,7 @@ This will produce an output with 200 generated events in evio format.
 .. _runningevio2hipoExample:
 
 Convert GEMC evio output to hipo
-================================
+--------------------------------
 
 Use evio2hipo to convert the gemc output into hipo.
 

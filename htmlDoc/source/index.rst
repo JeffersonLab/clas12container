@@ -7,7 +7,7 @@
 |br|
 
 Introduction
-============
+------------
 
 The CLAS12 simulation / reconstruction is packaged using `docker <https://www.docker.com>`_ images and
 `CVMFS <https://cernvm.cern.ch/portal/filesystem>`_.
@@ -45,7 +45,7 @@ Available in the Container
 |br|
 
 Quickstart: Full chain using docker
-===================================
+-----------------------------------
 
 The following commands will:
 
@@ -77,7 +77,7 @@ The following commands will:
 
 
 Quickstart: GEMC examples, interactively (MacOS)
-================================================
+------------------------------------------------
 
 First, open the XQuartz app and go to preferences and activate the option ‘Allow connections from network clients’ in XQuartz settings.
 This will allow XQuartz to receive display messages from network clients, such as docker.
@@ -111,7 +111,7 @@ You should be able now to run docker and use the native X server to open windows
 
 
 Quickstart: GEMC examples, interactively (Linux)
-================================================
+------------------------------------------------
 
 Add your localhost to the list of accepted X11 connections with one of these two commands (if the first doesn't work, try the second one):
 

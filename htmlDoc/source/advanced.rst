@@ -37,7 +37,7 @@ Use this command to run sincularity using these images::
 
 
 Containers Content
-==================
+------------------
 
 .. toctree::
 	:maxdepth: 1
@@ -46,7 +46,7 @@ Containers Content
 
 
 Archived Containers Usage Instructions
-======================================
+--------------------------------------
 
 .. toctree::
 	:maxdepth: 1
