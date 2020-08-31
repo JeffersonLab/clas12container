@@ -59,9 +59,9 @@ The following commands will:
 .. code-block:: ruby
 
  mkdir -p ~/mywork
- docker pull jeffersonlab/clas12software:devel
+ docker pull jeffersonlab/clas12software:production
  docker run -it --rm -v /cvmfs:/cvmfs -v ~/mywork:/jlab/work/mywork \
-   jeffersonlab/clas12software:devel bash
+   jeffersonlab/clas12software:production bash
  cd mywork
  clasdis --trig 100 --docker --t 25 35
  gemc -USE_GUI=0 -N=100 -INPUT_GEN_FILE="lund, clasdis.dat" \
@@ -104,7 +104,7 @@ You should be able now to run docker and use the native X server to open windows
 .. code-block:: ruby
 
  docker run -it --rm -v /cvmfs:/cvmfs -v ~/mywork:/jlab/work/mywork \
-   -e DISPLAY=docker.for.mac.localhost:0  jeffersonlab/clas12software:devel bash
+   -e DISPLAY=docker.for.mac.localhost:0  jeffersonlab/clas12software:production bash
 
 
 |br|
