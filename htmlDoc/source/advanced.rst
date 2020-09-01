@@ -28,7 +28,7 @@ The singularity images corresponding to the docker container is on cvmfs at the 
 
 |br|
 
-Use this command to run sincularity using these images::
+Use this command to run singularity using these images::
 
  singularity shell --home ${PWD}:/srv --pwd /srv --bind /cvmfs --contain \
    --ipc --pid /cvmfs/singularity.opensciencegrid.org/jeffersonlab/clas12software:production
