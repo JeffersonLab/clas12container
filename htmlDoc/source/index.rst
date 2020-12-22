@@ -33,11 +33,11 @@ Available in the Container
 --------------------------
 
 * `Events Generators <https://github.com/JeffersonLab/clas12-mcgen>`_
-* `Gemc <https://gemc.jlab.org/gemc/html/index.html>`_ : Geant4 MonteCarlo version 4.4.0
+* `Gemc <https://gemc.jlab.org/gemc/html/index.html>`_ : Geant4 MonteCarlo version 4.4.1
 * `CLAS12 geometry, magnetic fields, digitization <https://github.com/gemc/clas12Tags>`_
 * `Coatjava <https://clasweb.jlab.org/wiki/index.php/CLAS12_Software_Center#tab=Reconstruction>`_ reconstruction software version 6.5.6.1 for rga/rgk; 6.5.9 otherwise
 * CED: CLAS Event Display
-* CLAS12 Calibration database sqlite tagged file 4.4.0
+* CLAS12 Calibration database sqlite tagged file 4.4.1
 * CLAS12 Background merging files, available from xrootd
 
 
@@ -65,11 +65,11 @@ The following commands will:
  cd mywork
  clasdis --trig 100 --docker --t 25 35
  gemc -USE_GUI=0 -N=100 -INPUT_GEN_FILE="lund, clasdis.dat" \
-   /jlab/clas12Tags/4.4.0/config/rga_fall2018.gcard
+   /jlab/clas12Tags/4.4.1/config/rga_fall2018.gcard
  evio2hipo -r 11 -t -1.0 -s -1.0 -i out.ev -o gemc.hipo
  bgMerginFilename.sh rga_fall2018  tor-1.00_sol-1.00 45nA_10604MeV get
  command to merge
- recon-util -y /jlab/clas12Tags/4.4.0/config/rga_fall2018.yaml -i gemc.hipo -o recon.hipo
+ recon-util -y /jlab/clas12Tags/4.4.1/config/rga_fall2018.yaml -i gemc.hipo -o recon.hipo
 
 
 |br|

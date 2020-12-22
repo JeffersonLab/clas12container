@@ -64,11 +64,11 @@ The following commands will:
  cd mywork
  clasdis --trig 100 --docker --t 25 35
  gemc -USE_GUI=0 -N=100 -INPUT_GEN_FILE="lund, clasdis.dat" \
-   /jlab/clas12Tags/4.4.0/config/rga_fall2018.gcard
+   /jlab/clas12Tags/4.4.1/config/rga_fall2018.gcard
  evio2hipo -r 11 -t -1.0 -s -1.0 -i out.ev -o gemc.hipo
  bgMerginFilename.sh rga_fall2018  tor-1.00_sol-1.00 45nA_10604MeV get
  command to merge
- recon-util -y /jlab/clas12Tags/4.4.0/config/rga_fall2018.yaml -i gemc.hipo -o recon.hipo
+ recon-util -y /jlab/clas12Tags/4.4.1/config/rga_fall2018.yaml -i gemc.hipo -o recon.hipo
 
 
 |br|
