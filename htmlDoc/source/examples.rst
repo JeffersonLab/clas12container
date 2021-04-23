@@ -47,8 +47,8 @@ Graphic mode (browser)
 
 Use the following command to pass the 6080 port to noVnc so the container can be opened on a brower::
 
- docker run -it --rm -v /cvmfs:/cvmfs -p 6080:6080 \
-   jeffersonlab/clas12software:production bash
+ docker run -it --rm -v /cvmfs:/cvmfs -p127.0.0.1:6080:6080 \
+   jeffersonlab/clas12software:production
 
 Using your web brower open the page::
 
@@ -81,7 +81,7 @@ Graphic mode (vnc)
 
 Use the following command to pass the 5901 and the 6080 ports necessary to open the container with a vnc client::
 
- docker run -it --rm  -v /cvmfs:/cvmfs -p 6080:6080 -p 5901:5901 \
+ docker run -it --rm  -v /cvmfs:/cvmfs -p127.0.0.1:6080:6080 -p 5901:5901 \
    jeffersonlab/clas12software:production
 
 You can now open localhost:5901 with your vnc client.
